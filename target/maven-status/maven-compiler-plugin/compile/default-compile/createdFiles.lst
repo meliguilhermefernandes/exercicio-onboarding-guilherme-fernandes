@@ -1,0 +1,13 @@
+br/com/meli/onboarding/configuration/RestHandlerException.class
+br/com/meli/onboarding/service/PreferenciaService.class
+br/com/meli/onboarding/commons/exception/ResponseException.class
+br/com/meli/onboarding/commons/enums/EErrorCode.class
+br/com/meli/onboarding/v1/rs/request/PreferenciaRequestDTO.class
+br/com/meli/onboarding/v1/rs/PreferenciaV1RS.class
+br/com/meli/onboarding/v1/rs/response/PreferenciaResponseDTO.class
+br/com/meli/onboarding/v1/rs/request/ItemPreferenciaDTO.class
+br/com/meli/onboarding/configuration/SwaggerConfig.class
+br/com/meli/onboarding/service/IPreferenciaService.class
+br/com/meli/onboarding/commons/exception/MPIntegrationException.class
+br/com/meli/onboarding/commons/exception/CriarPreferenciaException.class
+br/com/meli/onboarding/OnboardingApplication.class

@@ -1,0 +1,13 @@
+/Users/gjfernandes/workspace/exercicio-onboarding-guilherme-fernandes/src/main/java/br/com/meli/onboarding/service/PreferenciaService.java
+/Users/gjfernandes/workspace/exercicio-onboarding-guilherme-fernandes/src/main/java/br/com/meli/onboarding/configuration/RestHandlerException.java
+/Users/gjfernandes/workspace/exercicio-onboarding-guilherme-fernandes/src/main/java/br/com/meli/onboarding/v1/rs/request/PreferenciaRequestDTO.java
+/Users/gjfernandes/workspace/exercicio-onboarding-guilherme-fernandes/src/main/java/br/com/meli/onboarding/OnboardingApplication.java
+/Users/gjfernandes/workspace/exercicio-onboarding-guilherme-fernandes/src/main/java/br/com/meli/onboarding/v1/rs/response/PreferenciaResponseDTO.java
+/Users/gjfernandes/workspace/exercicio-onboarding-guilherme-fernandes/src/main/java/br/com/meli/onboarding/commons/exception/MPIntegrationException.java
+/Users/gjfernandes/workspace/exercicio-onboarding-guilherme-fernandes/src/main/java/br/com/meli/onboarding/v1/rs/PreferenciaV1RS.java
+/Users/gjfernandes/workspace/exercicio-onboarding-guilherme-fernandes/src/main/java/br/com/meli/onboarding/commons/exception/ResponseException.java
+/Users/gjfernandes/workspace/exercicio-onboarding-guilherme-fernandes/src/main/java/br/com/meli/onboarding/v1/rs/request/ItemPreferenciaDTO.java
+/Users/gjfernandes/workspace/exercicio-onboarding-guilherme-fernandes/src/main/java/br/com/meli/onboarding/commons/enums/EErrorCode.java
+/Users/gjfernandes/workspace/exercicio-onboarding-guilherme-fernandes/src/main/java/br/com/meli/onboarding/service/IPreferenciaService.java
+/Users/gjfernandes/workspace/exercicio-onboarding-guilherme-fernandes/src/main/java/br/com/meli/onboarding/configuration/SwaggerConfig.java
+/Users/gjfernandes/workspace/exercicio-onboarding-guilherme-fernandes/src/main/java/br/com/meli/onboarding/commons/exception/CriarPreferenciaException.java
