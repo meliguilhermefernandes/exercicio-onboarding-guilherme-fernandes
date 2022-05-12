@@ -2,8 +2,6 @@ package br.com.meli.onboarding.v1.rs;
 
 import br.com.meli.onboarding.service.IPreferenciaService;
 import br.com.meli.onboarding.v1.rs.request.PreferenciaRequestDTO;
-import com.mercadopago.exceptions.MPApiException;
-import com.mercadopago.exceptions.MPException;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.http.HttpStatus;
