@@ -1,7 +1,7 @@
-package br.com.meli.onboarding.v1.rs;
+package br.com.meli.onboarding.preferencia.v1.rs;
 
-import br.com.meli.onboarding.service.IPreferenciaService;
-import br.com.meli.onboarding.v1.rs.request.PreferenciaRequestDTO;
+import br.com.meli.onboarding.preferencia.service.IPreferenciaService;
+import br.com.meli.onboarding.preferencia.v1.rs.request.PreferenciaRequestDTO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,10 +1,9 @@
-package br.com.meli.onboarding.service;
+package br.com.meli.onboarding.preferencia.service;
 
 import br.com.meli.onboarding.commons.exception.CriarPreferenciaException;
 import br.com.meli.onboarding.commons.exception.MPIntegrationException;
-import br.com.meli.onboarding.v1.rs.request.ItemPreferenciaDTO;
-import br.com.meli.onboarding.v1.rs.request.PreferenciaRequestDTO;
-import br.com.meli.onboarding.v1.rs.response.PreferenciaResponseDTO;
+import br.com.meli.onboarding.preferencia.v1.rs.request.ItemPreferenciaDTO;
+import br.com.meli.onboarding.preferencia.v1.rs.request.PreferenciaRequestDTO;
 import com.mercadopago.MercadoPagoConfig;
 import com.mercadopago.client.preference.PreferenceClient;
 import com.mercadopago.client.preference.PreferenceItemRequest;

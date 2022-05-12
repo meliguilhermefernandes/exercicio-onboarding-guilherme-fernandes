@@ -1,4 +1,4 @@
-package br.com.meli.onboarding.v1.rs.request;
+package br.com.meli.onboarding.preferencia.v1.rs.request;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
