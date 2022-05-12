@@ -5,5 +5,5 @@ import br.com.meli.onboarding.v1.rs.response.PreferenciaResponseDTO;
 
 public interface IPreferenciaService {
 
-    PreferenciaResponseDTO criar(PreferenciaRequestDTO preferenciaRequestDTO);
+    String criar(PreferenciaRequestDTO preferenciaRequestDTO);
 }

@@ -4,6 +4,7 @@ import br.com.meli.onboarding.service.IPreferenciaService;
 import br.com.meli.onboarding.v1.rs.request.PreferenciaRequestDTO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,11 +19,12 @@ import javax.validation.Valid;
 @RequestMapping("v1/preferencia")
 public class PreferenciaV1RS {
 
+    @Autowired
     private IPreferenciaService preferenciaService;
 
     @ApiOperation(value = "Criar preferencia")
     @RequestMapping(method = RequestMethod.POST)
-    public ResponseEntity criar(@RequestBody @Valid PreferenciaRequestDTO preferenciaRequestDTO) {
-        return new ResponseEntity<>(preferenciaService.criar(preferenciaRequestDTO), HttpStatus.CREATED);
+    public ResponseEntity<String> criar(@RequestBody @Valid PreferenciaRequestDTO preferenciaRequestDTO) {
+        return new ResponseEntity<String>(preferenciaService.criar(preferenciaRequestDTO), HttpStatus.CREATED);
     }
 }
