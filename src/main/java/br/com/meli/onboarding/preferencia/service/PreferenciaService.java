@@ -47,7 +47,7 @@ public class PreferenciaService implements IPreferenciaService {
             PreferenceTrackRequest googleTrack = PreferenceTrackRequest.builder().type("google_ad").build();
             tracks.add(googleTrack);
             PreferenceRequest request = PreferenceRequest.builder().items(items).build();
-            return client.create(request).getSandboxInitPoint();
+            return client.create(request).getId();
         } catch (MPException | MPApiException exception) {
             log.error("Error integracao PreferenciaService.criar() " + exception.getMessage(), exception);
             throw new MPIntegrationException();

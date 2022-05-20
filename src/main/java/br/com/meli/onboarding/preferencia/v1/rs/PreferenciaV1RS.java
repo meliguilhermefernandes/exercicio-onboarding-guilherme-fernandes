@@ -7,10 +7,7 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
@@ -25,6 +22,11 @@ public class PreferenciaV1RS {
     @ApiOperation(value = "Criar preferencia")
     @RequestMapping(method = RequestMethod.POST)
     public ResponseEntity<String> criar(@RequestBody @Valid PreferenciaRequestDTO preferenciaRequestDTO) {
-        return new ResponseEntity<String>(preferenciaService.criar(preferenciaRequestDTO), HttpStatus.CREATED);
+        return new ResponseEntity<>(preferenciaService.criar(preferenciaRequestDTO), HttpStatus.CREATED);
+    }
+
+    @RequestMapping(method = RequestMethod.GET)
+    public ResponseEntity<String> teste() {
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }
