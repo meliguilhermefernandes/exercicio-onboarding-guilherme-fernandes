@@ -18,7 +18,8 @@ public class RestHandlerException {
     ObjectMapper mapper = new ObjectMapper();
 
     @ExceptionHandler(RuntimeException.class)
-    public ResponseEntity handlerRuntimeException() {
+    public ResponseEntity handlerRuntimeException(RuntimeException exception) {
+        log.error(exception.getMessage(), exception);
         return (ResponseEntity) ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
