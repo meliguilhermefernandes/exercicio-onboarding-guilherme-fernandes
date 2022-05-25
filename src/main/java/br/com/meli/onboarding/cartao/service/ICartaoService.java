@@ -6,5 +6,5 @@ import com.mercadopago.exceptions.MPApiException;
 import com.mercadopago.exceptions.MPException;
 
 public interface ICartaoService {
-    void criarPagamento(PagamentoRequestDTO pagamentoRequestDTO);
+    String criarPagamento(PagamentoRequestDTO pagamentoRequestDTO);
 }

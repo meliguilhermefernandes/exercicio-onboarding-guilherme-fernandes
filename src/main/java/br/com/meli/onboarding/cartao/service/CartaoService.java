@@ -17,7 +17,7 @@ import org.springframework.stereotype.Service;
 public class CartaoService implements ICartaoService{
 
     @Override
-    public void criarPagamento(PagamentoRequestDTO pagamentoRequestDTO) {
+    public String criarPagamento(PagamentoRequestDTO pagamentoRequestDTO) {
         PaymentClient paymentClient = new PaymentClient();
 
         try {
@@ -46,7 +46,7 @@ public class CartaoService implements ICartaoService{
                             .build())
                     .build();
 
-            paymentClient.create(paymentCreateRequest);
+            return paymentClient.create(paymentCreateRequest).getResponse().getContent();
         } catch (MPException | MPApiException exception) {
             log.error("Error integracao CartaoService.criarPagamento() " + exception.getMessage(), exception);
             throw new MPIntegrationException();

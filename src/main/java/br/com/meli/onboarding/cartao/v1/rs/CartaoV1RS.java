@@ -27,8 +27,7 @@ public class CartaoV1RS {
     @ApiOperation(value = "Pagar Cartão")
     @RequestMapping(method = RequestMethod.POST)
     public ResponseEntity<String> pagamento(@RequestBody @Valid PagamentoRequestDTO pagamentoRequestDTO) {
-        cartaoService.criarPagamento(pagamentoRequestDTO);
-        return new ResponseEntity<>(HttpStatus.CREATED);
+        return new ResponseEntity<>(cartaoService.criarPagamento(pagamentoRequestDTO), HttpStatus.CREATED);
     }
 
     @RequestMapping(method = RequestMethod.GET)
