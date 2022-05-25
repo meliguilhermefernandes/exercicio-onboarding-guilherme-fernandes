@@ -18,7 +18,7 @@ public class CartaoService implements ICartaoService{
 
     @Override
     public void criarPagamento(PagamentoRequestDTO pagamentoRequestDTO) {
-        PaymentClient client = new PaymentClient();
+        PaymentClient paymentClient = new PaymentClient();
 
         try {
             PaymentCreateRequest paymentCreateRequest =
@@ -46,7 +46,7 @@ public class CartaoService implements ICartaoService{
                             .build())
                     .build();
 
-            client.create(paymentCreateRequest);
+            paymentClient.create(paymentCreateRequest);
         } catch (MPException | MPApiException exception) {
             log.error("Error integracao CartaoService.criarPagamento() " + exception.getMessage(), exception);
             throw new MPIntegrationException();
