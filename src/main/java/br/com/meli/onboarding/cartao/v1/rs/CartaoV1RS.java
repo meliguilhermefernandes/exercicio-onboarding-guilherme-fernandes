@@ -2,8 +2,6 @@ package br.com.meli.onboarding.cartao.v1.rs;
 
 import br.com.meli.onboarding.cartao.service.ICartaoService;
 import br.com.meli.onboarding.cartao.v1.rs.request.PagamentoRequestDTO;
-import br.com.meli.onboarding.preferencia.service.IPreferenciaService;
-import br.com.meli.onboarding.preferencia.v1.rs.request.PreferenciaRequestDTO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
