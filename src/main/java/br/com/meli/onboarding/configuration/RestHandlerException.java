@@ -1,8 +1,6 @@
 package br.com.meli.onboarding.configuration;
 
-import br.com.meli.onboarding.commons.exception.CriarPreferenciaException;
-import br.com.meli.onboarding.commons.exception.MPIntegrationException;
-import br.com.meli.onboarding.commons.exception.ResponseException;
+import br.com.meli.onboarding.commons.exception.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
@@ -25,6 +23,18 @@ public class RestHandlerException {
 
     @ExceptionHandler(CriarPreferenciaException.class)
     public ResponseEntity handlerCriarPreferenciaException(CriarPreferenciaException ex) throws JsonProcessingException {
+        return new ResponseEntity<>(mapper.writerWithDefaultPrettyPrinter().writeValueAsString(
+                new ResponseException(ex.getErrorCode(), ex.getMessage())), HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(CriarPagamentoCartaoException.class)
+    public ResponseEntity handlerCriarPagamentoCartaoException(CriarPagamentoCartaoException ex) throws JsonProcessingException {
+        return new ResponseEntity<>(mapper.writerWithDefaultPrettyPrinter().writeValueAsString(
+                new ResponseException(ex.getErrorCode(), ex.getMessage())), HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(ListarMeiosPagamentoException.class)
+    public ResponseEntity handlerListarMeiosPagamentoException(ListarMeiosPagamentoException ex) throws JsonProcessingException {
         return new ResponseEntity<>(mapper.writerWithDefaultPrettyPrinter().writeValueAsString(
                 new ResponseException(ex.getErrorCode(), ex.getMessage())), HttpStatus.BAD_REQUEST);
     }
