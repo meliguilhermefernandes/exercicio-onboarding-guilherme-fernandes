@@ -1,23 +1,46 @@
-package br.com.meli.onboarding.cartao.service;
+package br.com.meli.onboarding.pagamentos.service;
 
-import br.com.meli.onboarding.cartao.v1.rs.request.PagamentoRequestDTO;
-import br.com.meli.onboarding.commons.exception.CriarPagamentoCartaoException;
+import br.com.meli.onboarding.commons.enums.EPaymentMethod;
+import br.com.meli.onboarding.pagamentos.v1.rs.request.PagamentoRequestDTO;
+import br.com.meli.onboarding.commons.exception.CriarPagamentoException;
 import br.com.meli.onboarding.commons.exception.MPIntegrationException;
+import br.com.meli.onboarding.pagamentos.v1.rs.response.BoletoResponseDTO;
+import br.com.meli.onboarding.pagamentos.v1.rs.response.PixResponseDTO;
 import com.mercadopago.client.common.IdentificationRequest;
 import com.mercadopago.client.payment.PaymentClient;
 import com.mercadopago.client.payment.PaymentCreateRequest;
 import com.mercadopago.client.payment.PaymentPayerRequest;
 import com.mercadopago.exceptions.MPApiException;
 import com.mercadopago.exceptions.MPException;
+import com.mercadopago.resources.payment.Payment;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 @Service
 @Slf4j
-public class CartaoService implements ICartaoService{
+public class PagamentoService implements IPagamentoService {
 
     @Override
-    public String criarPagamento(PagamentoRequestDTO pagamentoRequestDTO) {
+    public String criarPagamentoCartao(PagamentoRequestDTO pagamentoRequestDTO) {
+        pagamentoRequestDTO.setPaymentMethodId(EPaymentMethod.VISA.getValue());
+        return criar(pagamentoRequestDTO).getResponse().getContent();
+    }
+
+    @Override
+    public PixResponseDTO criarPagamentoPix(PagamentoRequestDTO pagamentoRequestDTO) {
+        pagamentoRequestDTO.setPaymentMethodId(EPaymentMethod.PIX.getValue());
+        pagamentoRequestDTO.setInstallments(null);
+        return new PixResponseDTO(criar(pagamentoRequestDTO).getPointOfInteraction().getTransactionData());
+    }
+
+    @Override
+    public BoletoResponseDTO criarPagamentoBoleto(PagamentoRequestDTO pagamentoRequestDTO) {
+        pagamentoRequestDTO.setPaymentMethodId(EPaymentMethod.BOLETO.getValue());
+        pagamentoRequestDTO.setInstallments(null);
+        return new BoletoResponseDTO(criar(pagamentoRequestDTO).getTransactionDetails());
+    }
+
+    private Payment criar(PagamentoRequestDTO pagamentoRequestDTO) {
         PaymentClient paymentClient = new PaymentClient();
 
         try {
@@ -34,6 +57,8 @@ public class CartaoService implements ICartaoService{
                                 pagamentoRequestDTO.getPayerDTO().getEmail() : null)
                             .firstName(pagamentoRequestDTO.getPayerDTO() != null ?
                                 pagamentoRequestDTO.getPayerDTO().getFirstName() : null)
+                            .lastName(pagamentoRequestDTO.getPayerDTO() != null ?
+                                    pagamentoRequestDTO.getPayerDTO().getLastName() : null)
                             .identification(
                                 IdentificationRequest.builder()
                                     .type(pagamentoRequestDTO.getPayerDTO() != null &&
@@ -46,13 +71,13 @@ public class CartaoService implements ICartaoService{
                             .build())
                     .build();
 
-            return paymentClient.create(paymentCreateRequest).getResponse().getContent();
+            return paymentClient.create(paymentCreateRequest);
         } catch (MPException | MPApiException exception) {
-            log.error("Error integracao CartaoService.criarPagamento() " + exception.getMessage(), exception);
+            log.error("Error integracao PagamentoService.criar() " + exception.getMessage(), exception);
             throw new MPIntegrationException();
         } catch (Exception exception) {
-            log.error("Error CartaoService.criarPagamento() " + exception.getMessage(), exception);
-            throw new CriarPagamentoCartaoException();
+            log.error("Error PagamentoService.criar() " + exception.getMessage(), exception);
+            throw new CriarPagamentoException();
         }
     }
 }

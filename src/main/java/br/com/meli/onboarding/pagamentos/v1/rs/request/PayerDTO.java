@@ -1,4 +1,4 @@
-package br.com.meli.onboarding.cartao.v1.rs.request;
+package br.com.meli.onboarding.pagamentos.v1.rs.request;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -10,11 +10,17 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Getter
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class IdentificationDTO {
+public class PayerDTO {
 
     @JsonProperty
-    private String type;
+    private String email;
 
-    @JsonProperty
-    private String number;
+    @JsonProperty("first_name")
+    private String firstName;
+
+    @JsonProperty("last_name")
+    private String lastName;
+
+    @JsonProperty("identification")
+    private IdentificationDTO identificationDTO;
 }

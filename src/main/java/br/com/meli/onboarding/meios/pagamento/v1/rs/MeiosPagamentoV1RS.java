@@ -19,11 +19,11 @@ import java.util.List;
 public class MeiosPagamentoV1RS {
 
     @Autowired
-    private MeiosPagamentoService service;
+    private MeiosPagamentoService meiosPagamentoService;
 
     @ApiOperation(value = "Listar Meios Pagamento")
     @RequestMapping(value = "/listar", method = RequestMethod.GET)
     public ResponseEntity<List<PaymentMethod>> listarMeiosPagamento() {
-        return new ResponseEntity<>(service.listar(), HttpStatus.OK);
+        return new ResponseEntity<>(meiosPagamentoService.listar(), HttpStatus.OK);
     }
 }

@@ -1,16 +1,18 @@
-package br.com.meli.onboarding.cartao.v1.rs.request;
+package br.com.meli.onboarding.pagamentos.v1.rs.request;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.math.BigDecimal;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
+@Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class PagamentoRequestDTO {
 

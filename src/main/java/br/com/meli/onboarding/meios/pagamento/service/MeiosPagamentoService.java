@@ -1,12 +1,7 @@
 package br.com.meli.onboarding.meios.pagamento.service;
 
-import br.com.meli.onboarding.cartao.v1.rs.request.PagamentoRequestDTO;
-import br.com.meli.onboarding.commons.exception.CriarPagamentoCartaoException;
+import br.com.meli.onboarding.commons.exception.CriarPagamentoException;
 import br.com.meli.onboarding.commons.exception.MPIntegrationException;
-import com.mercadopago.client.common.IdentificationRequest;
-import com.mercadopago.client.payment.PaymentClient;
-import com.mercadopago.client.payment.PaymentCreateRequest;
-import com.mercadopago.client.payment.PaymentPayerRequest;
 import com.mercadopago.client.paymentmethod.PaymentMethodClient;
 import com.mercadopago.exceptions.MPApiException;
 import com.mercadopago.exceptions.MPException;
@@ -32,7 +27,7 @@ public class MeiosPagamentoService implements IMeiosPagamentoService {
             throw new MPIntegrationException();
         } catch (Exception exception) {
             log.error("Error MeiosPagamentoService.listar() " + exception.getMessage(), exception);
-            throw new CriarPagamentoCartaoException();
+            throw new CriarPagamentoException();
         }
     }
 }

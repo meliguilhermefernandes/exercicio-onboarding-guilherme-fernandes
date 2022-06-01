@@ -27,8 +27,8 @@ public class RestHandlerException {
                 new ResponseException(ex.getErrorCode(), ex.getMessage())), HttpStatus.BAD_REQUEST);
     }
 
-    @ExceptionHandler(CriarPagamentoCartaoException.class)
-    public ResponseEntity handlerCriarPagamentoCartaoException(CriarPagamentoCartaoException ex) throws JsonProcessingException {
+    @ExceptionHandler(CriarPagamentoException.class)
+    public ResponseEntity handlerCriarPagamentoCartaoException(CriarPagamentoException ex) throws JsonProcessingException {
         return new ResponseEntity<>(mapper.writerWithDefaultPrettyPrinter().writeValueAsString(
                 new ResponseException(ex.getErrorCode(), ex.getMessage())), HttpStatus.BAD_REQUEST);
     }

@@ -1,7 +1,8 @@
-package br.com.meli.onboarding.cartao.v1.rs;
+package br.com.meli.onboarding.pagamentos.v1.rs;
 
-import br.com.meli.onboarding.cartao.service.ICartaoService;
-import br.com.meli.onboarding.cartao.v1.rs.request.PagamentoRequestDTO;
+import br.com.meli.onboarding.pagamentos.v1.rs.request.PagamentoRequestDTO;
+import br.com.meli.onboarding.pagamentos.service.IPagamentoService;
+import br.com.meli.onboarding.pagamentos.v1.rs.response.PixResponseDTO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,17 +16,17 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.validation.Valid;
 
 @RestController
-@Api(value = "v1/cartao", tags = "Cartão")
-@RequestMapping("v1/cartao")
-public class CartaoV1RS {
+@Api(value = "v1/pix", tags = "Pix")
+@RequestMapping("v1/pix")
+public class PixV1RS {
 
     @Autowired
-    private ICartaoService cartaoService;
+    private IPagamentoService cartaoService;
 
-    @ApiOperation(value = "Pagar Cartão")
+    @ApiOperation(value = "Pagar Pix")
     @RequestMapping(method = RequestMethod.POST)
-    public ResponseEntity<String> pagamento(@RequestBody @Valid PagamentoRequestDTO pagamentoRequestDTO) {
-        return new ResponseEntity<>(cartaoService.criarPagamento(pagamentoRequestDTO), HttpStatus.CREATED);
+    public ResponseEntity<PixResponseDTO> pagamento(@RequestBody @Valid PagamentoRequestDTO pagamentoRequestDTO) {
+        return new ResponseEntity<>(cartaoService.criarPagamentoPix(pagamentoRequestDTO), HttpStatus.CREATED);
     }
 
     @RequestMapping(method = RequestMethod.GET)
