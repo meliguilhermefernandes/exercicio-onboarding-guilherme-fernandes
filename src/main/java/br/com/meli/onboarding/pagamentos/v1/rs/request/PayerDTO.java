@@ -13,6 +13,9 @@ import lombok.NoArgsConstructor;
 public class PayerDTO {
 
     @JsonProperty
+    private String id;
+
+    @JsonProperty
     private String email;
 
     @JsonProperty("first_name")

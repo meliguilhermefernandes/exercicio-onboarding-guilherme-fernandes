@@ -28,6 +28,12 @@ public class CartaoV1RS {
         return new ResponseEntity<>(pagamentoService.criarPagamentoCartao(pagamentoRequestDTO), HttpStatus.CREATED);
     }
 
+    @ApiOperation(value = "Pagar Cartão")
+    @RequestMapping(value = "/pagar-cartao-salvo", method = RequestMethod.POST)
+    public ResponseEntity<String> pagarCartaoSalvo(@RequestBody @Valid PagamentoRequestDTO pagamentoRequestDTO) {
+        return new ResponseEntity<>(pagamentoService.criarPagamentoCartaoSalvo(pagamentoRequestDTO), HttpStatus.CREATED);
+    }
+
     @RequestMapping(method = RequestMethod.GET)
     public ResponseEntity<String> teste() {
         return new ResponseEntity<>(HttpStatus.OK);

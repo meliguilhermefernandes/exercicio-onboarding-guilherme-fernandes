@@ -8,11 +8,13 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="onboarding" />
+        <module name="exercicio-onboarding-guilherme-fernandes" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="exercicio-onboarding-guilherme-fernandes" options="-parameters" />
       <module name="onboarding" options="-parameters" />
     </option>
   </component>

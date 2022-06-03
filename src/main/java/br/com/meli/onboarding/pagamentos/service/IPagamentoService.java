@@ -7,6 +7,8 @@ import br.com.meli.onboarding.pagamentos.v1.rs.response.PixResponseDTO;
 public interface IPagamentoService {
     String criarPagamentoCartao(PagamentoRequestDTO pagamentoRequestDTO);
 
+    String criarPagamentoCartaoSalvo(PagamentoRequestDTO pagamentoRequestDTO);
+
     PixResponseDTO criarPagamentoPix(PagamentoRequestDTO pagamentoRequestDTO);
 
     BoletoResponseDTO criarPagamentoBoleto(PagamentoRequestDTO pagamentoRequestDTO);
