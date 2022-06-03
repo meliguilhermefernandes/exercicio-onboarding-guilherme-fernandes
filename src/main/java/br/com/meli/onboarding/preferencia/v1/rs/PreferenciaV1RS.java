@@ -24,9 +24,4 @@ public class PreferenciaV1RS {
     public ResponseEntity<String> criar(@RequestBody @Valid PreferenciaRequestDTO preferenciaRequestDTO) {
         return new ResponseEntity<>(preferenciaService.criar(preferenciaRequestDTO), HttpStatus.CREATED);
     }
-
-    @RequestMapping(method = RequestMethod.GET)
-    public ResponseEntity<String> teste() {
-        return new ResponseEntity<>(HttpStatus.OK);
-    }
 }

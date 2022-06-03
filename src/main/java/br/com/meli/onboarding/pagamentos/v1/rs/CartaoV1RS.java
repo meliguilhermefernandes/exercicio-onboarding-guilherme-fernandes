@@ -33,9 +33,4 @@ public class CartaoV1RS {
     public ResponseEntity<String> pagarCartaoSalvo(@RequestBody @Valid PagamentoRequestDTO pagamentoRequestDTO) {
         return new ResponseEntity<>(pagamentoService.criarPagamentoCartaoSalvo(pagamentoRequestDTO), HttpStatus.CREATED);
     }
-
-    @RequestMapping(method = RequestMethod.GET)
-    public ResponseEntity<String> teste() {
-        return new ResponseEntity<>(HttpStatus.OK);
-    }
 }

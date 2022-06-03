@@ -28,9 +28,4 @@ public class PixV1RS {
     public ResponseEntity<PixResponseDTO> pagamento(@RequestBody @Valid PagamentoRequestDTO pagamentoRequestDTO) {
         return new ResponseEntity<>(cartaoService.criarPagamentoPix(pagamentoRequestDTO), HttpStatus.CREATED);
     }
-
-    @RequestMapping(method = RequestMethod.GET)
-    public ResponseEntity<String> teste() {
-        return new ResponseEntity<>(HttpStatus.OK);
-    }
 }
